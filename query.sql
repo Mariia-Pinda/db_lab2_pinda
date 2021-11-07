@@ -1,0 +1,3 @@
+select trim(genre_name) as genre, count(genre_id) from releases join genres using(genre_id) group by genre_name
+select trim(artist_name) as artist, count(song_id) from artists join performances using(artist_id) group by artist_name	
+select trim(genre_name) as genre, count(*) from performances join songs using(song_id) join releases using(song_id) join genres using(genre_id) where perf_place != 'USA' group by genre_name
